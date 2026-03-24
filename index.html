@@ -10,6 +10,14 @@
     <div class="game-wrapper">
         <h1 class="game-title">Water Drop</h1>
         <p class="game-tagline">Catch the good drops, avoid the bad ones!</p>
+        <div class="difficulty-panel">
+            <p class="difficulty-label">Difficulty:</p>
+            <div class="difficulty-buttons">
+                <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn active" data-difficulty="medium">Medium</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+            </div>
+        </div>
         <div class="score-panel">
             <div class="score">Score: <span id="score">0</span></div>
             <div class="timer">Time: <span id="time">30</span>s</div>
@@ -22,11 +30,16 @@
                 <div class="confetti-layer" id="confetti-layer"></div>
                 <div class="win-card">
                     <h2>Congratulations!</h2>
-                    <p>You reached 50 points.</p>
+                    <p id="win-message">You reached 50 points.</p>
                     <button id="play-again-btn">Play Again</button>
                 </div>
             </div>
         </div>
+        <footer class="charity-footer" aria-label="charity: water links">
+            <p>Support clean water projects:</p>
+            <a href="https://www.charitywater.org/" target="_blank" rel="noopener noreferrer">Visit charity: water</a>
+            <a href="https://www.charitywater.org/donate" target="_blank" rel="noopener noreferrer">Donate Now</a>
+        </footer>
     </div>
     
     <script src="script.js"></script>

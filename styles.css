@@ -30,7 +30,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #FFC907;
-    font-family: Arial, sans-serif;
+    font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .game-wrapper {
@@ -38,6 +38,76 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+}
+
+.charity-footer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 800px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.charity-footer p {
+    margin: 0;
+    color: #1f1f1f;
+    font-weight: bold;
+}
+
+.charity-footer a {
+    color: #0058a3;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 4px 0;
+}
+
+.charity-footer a:hover {
+    text-decoration: underline;
+}
+
+.difficulty-panel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.difficulty-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.difficulty-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.difficulty-btn {
+    padding: 8px 16px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.difficulty-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.difficulty-btn.active {
+    background-color: #2e9df7;
+    color: #fff;
+    border-color: #2e9df7;
 }
 
 .score-panel {
@@ -57,6 +127,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     color: #fff;
+    font-family: Avenir, "Avenir Next", "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #game-container {
@@ -174,6 +245,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     color: #fff;
+    font-family: Avenir, "Avenir Next", "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .water-drop {
@@ -215,12 +287,31 @@ body {
     color: rgba(122, 61, 240, 0.95);
 }
 
+.milestone-indicator {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 14px 22px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.78);
+    color: #ffc907;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.3px;
+    pointer-events: none;
+    z-index: 6;
+    animation: milestonePulse 1.35s ease-out forwards;
+}
+
 .game-title {
     color: #131313;
     font-size: 48px;
     margin-top: 0;
     margin-bottom: 5px;  /* reduced from 20px */
     text-align: center;
+    font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .game-tagline {
@@ -257,6 +348,45 @@ body {
     to {
         transform: translateY(640px) rotate(460deg);
     }
+}
+
+@keyframes redFlash {
+    0% {
+        background-color: rgba(245, 64, 44, 0);
+    }
+    50% {
+        background-color: rgba(245, 64, 44, 0.5);
+    }
+    100% {
+        background-color: rgba(245, 64, 44, 0);
+    }
+}
+
+@keyframes milestonePulse {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    75% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.02);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -56%) scale(0.98);
+    }
+}
+
+.flash-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    pointer-events: none;
+    animation: redFlash 0.4s ease-out;
 }
 
 @media (max-width: 850px) {
